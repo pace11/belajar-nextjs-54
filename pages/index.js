@@ -7,7 +7,8 @@ import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home(props) {
+  console.log("props => ", props);
   return (
     <>
       <Head>
@@ -53,6 +54,7 @@ export default function Home() {
             priority
           />
         </div>
+        <div className="bg-red">konten</div>
 
         <div className={styles.grid}>
           <a
@@ -111,6 +113,8 @@ export default function Home() {
               with&nbsp;Vercel.
             </p>
           </a>
+
+          <h1 className="text-2xl font-bold underline">Hello world!</h1>
         </div>
       </main>
     </>

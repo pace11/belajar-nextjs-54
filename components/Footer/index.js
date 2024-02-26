@@ -1,3 +1,5 @@
+// import styles from "./index.module.css";
+
 export default function Footer() {
   const handleClickButton = () => {
     console.log("me");
@@ -5,7 +7,9 @@ export default function Footer() {
 
   return (
     <div>
-      <button onClick={handleClickButton}>Klik Me</button>
+      <button className="btn-yellow" onClick={handleClickButton}>
+        Klik Me
+      </button>
       Footer
     </div>
   );
