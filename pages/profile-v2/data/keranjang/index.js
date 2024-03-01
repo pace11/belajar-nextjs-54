@@ -1,9 +1,9 @@
 import Layout from "@/layout";
 
-export default function Profile() {
+export default function Keranjang() {
   return (
     <Layout metaDescription="Isi dari description">
-      <h1>Component Profile base on file</h1>
+      <h1>Component Keranjang</h1>
     </Layout>
   );
 }

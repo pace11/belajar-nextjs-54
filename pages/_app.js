@@ -1,4 +1,3 @@
-import Layout from "@/layout";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
@@ -7,9 +6,5 @@ export default function App({ Component, pageProps }) {
     age: "27",
   };
 
-  return (
-    <Layout>
-      <Component {...pageProps} {...userData} />
-    </Layout>
-  );
+  return <Component {...pageProps} {...userData} />;
 }
