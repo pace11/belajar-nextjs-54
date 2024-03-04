@@ -10,15 +10,13 @@ export default function Products() {
   useEffect(() => {
     async function fetchingData() {
       const response = await (
-        await fetch(`https://dummyjson.com/products/${id}`)
+        await fetch(`/api/products/${id}`)
       ).json();
       // console.log("response => ", response);
       setProducts(response);
     }
     fetchingData();
   }, [id]);
-
-  console.log("router => ", router);
 
   return (
     <div>

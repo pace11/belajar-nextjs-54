@@ -7,7 +7,7 @@ export default function Products() {
   useEffect(() => {
     async function fetchingData() {
       const response = await (
-        await fetch("https://dummyjson.com/products?limit=10")
+        await fetch("/api/products?limit=")
       ).json();
       // console.log("response => ", response);
       setProducts(response?.products);
