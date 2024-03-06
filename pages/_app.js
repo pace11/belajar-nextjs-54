@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { ChakraProvider } from "@chakra-ui/react";
 
 export default function App({ Component, pageProps }) {
   const userData = {
@@ -6,5 +7,9 @@ export default function App({ Component, pageProps }) {
     age: "27",
   };
 
-  return <Component {...pageProps} {...userData} />;
+  return (
+    <ChakraProvider>
+      <Component {...pageProps} {...userData} />
+    </ChakraProvider>
+  );
 }
