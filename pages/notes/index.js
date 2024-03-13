@@ -1,3 +1,4 @@
+import { useQueries } from "@/hooks/useQueries";
 import {
   Box,
   Button,
@@ -13,13 +14,12 @@ import {
 } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 
 const LayoutComponent = dynamic(() => import("@/layout"));
 
 export default function Notes() {
   const router = useRouter();
-  const [notes, setNotes] = useState();
+  const { data: listNotes } = useQueries({ prefixUrl: "/api/notes" });
 
   const HandleDelete = async (id) => {
     try {
@@ -30,14 +30,6 @@ export default function Notes() {
       }
     } catch (error) {}
   };
-
-  useEffect(() => {
-    async function fetchingData() {
-      const listNotes = await (await fetch("/api/notes")).json();
-      setNotes(listNotes);
-    }
-    fetchingData();
-  }, []);
 
   return (
     <>
@@ -53,7 +45,7 @@ export default function Notes() {
           </Flex>
           <Flex>
             <Grid templateColumns="repeat(3, 1fr)" gap={5}>
-              {notes?.data?.map((item) => (
+              {listNotes?.data?.map((item) => (
                 <GridItem key={item?.id}>
                   <Card>
                     <CardHeader>
